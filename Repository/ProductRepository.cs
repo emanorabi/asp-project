@@ -1,5 +1,6 @@
 ﻿using app2api.Data;
 using app2api.Data.Models;
+using app2api.dto;
 using app2api.Migrations;
 using Microsoft.EntityFrameworkCore;
 
@@ -40,12 +41,13 @@ namespace app2api.Repository
 
         public async Task<Product> Update(Product product)
         {
+            
             _db.Update(product);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
 
             return product;
         }
-
+        
         public async Task<IEnumerable<Product>> GetProduct(int idBrand)
         {
 

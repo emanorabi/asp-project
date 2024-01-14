@@ -63,14 +63,16 @@ namespace app2api.Controllers
             var product = await _repo.GetById(id);
             if (product == null)
             {
-                return NotFound($"  item id {id} not exists !");
+                return NotFound($" product id {id} not exists !");
             }
+
             
             product.Name = mdl.Name;
             product.Price = mdl.Price;
             product.Description = mdl.Description;
-            product.BrandId= mdl.BrandId;
-            _repo.Update(product);
+            product.BrandId = mdl.BrandId;  
+
+            await _repo.Update(product);
 
             return Ok(product);
         }

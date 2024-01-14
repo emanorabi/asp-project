@@ -10,8 +10,9 @@ namespace app2api.Data.Models
         public string Name { get; set; }
         public double Price { get; set; }
         public string Description { get; set; }
-        public Brand Brand { get; set; }
+        
         [ForeignKey(nameof(Brand))]
         public int BrandId { get; set; }
+        public virtual Brand Brand { get; set; }
     }
 }
